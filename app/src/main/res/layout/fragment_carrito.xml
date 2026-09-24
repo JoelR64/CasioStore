@@ -101,7 +101,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Subtotal"
+                        android:text="Total"
                         android:textStyle="bold"
                         android:textColor="@color/negro"
                         android:gravity="end" />
@@ -114,17 +114,35 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
 
-                <!-- Botón PAGAR -->
-                <Button
-                    android:id="@+id/btnPagar"
-                    android:layout_width="wrap_content"
+                <!-- NUEVO: Fila inferior con el Subtotal general y el botón Pagar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="PAGAR"
-                    android:textStyle="bold"
-                    android:textColor="@color/blanco"
-                    android:backgroundTint="@android:color/holo_green_dark"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="12dp" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/txtSubtotalGeneral"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Subtotal: Bs. 0.0"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/negro" />
+
+                    <!-- Botón PAGAR -->
+                    <Button
+                        android:id="@+id/btnPagar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PAGAR"
+                        android:textStyle="bold"
+                        android:textColor="@color/blanco"
+                        android:backgroundTint="@android:color/holo_green_dark" />
+
+                </LinearLayout>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

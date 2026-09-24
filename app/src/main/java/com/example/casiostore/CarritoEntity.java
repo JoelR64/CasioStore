@@ -11,10 +11,10 @@ public class CarritoEntity {
     public String nombre;
     public double precio;
     public int cantidad;
-    public String imagenRes;
+    public int imagenRes; // <-- CAMBIADO A INT
     public String descripcion;
 
-    public CarritoEntity(String nombre, double precio, int cantidad, String imagenRes, String descripcion) {
+    public CarritoEntity(String nombre, double precio, int cantidad, int imagenRes, String descripcion) {
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;

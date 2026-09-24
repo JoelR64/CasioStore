@@ -20,7 +20,6 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.CarritoV
     @NonNull
     @Override
     public CarritoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Usaremos un diseño de fila para cada producto en el carrito (crearemos item_carrito.xml o puedes adaptarlo)
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_carrito, parent, false);
         return new CarritoViewHolder(view);
     }
@@ -35,15 +34,8 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.CarritoV
         double subtotal = item.precio * item.cantidad;
         holder.txtSubtotal.setText("Bs. " + subtotal);
 
-        // Cargar imagen dinámicamente
-        int imageId = holder.itemView.getContext().getResources().getIdentifier(
-                item.imagenRes,
-                "drawable",
-                holder.itemView.getContext().getPackageName()
-        );
-        if (imageId != 0) {
-            holder.imgProducto.setImageResource(imageId);
-        }
+        // Cargar imagen directamente usando el entero del recurso (R.drawable.xxx)
+        holder.imgProducto.setImageResource(item.imagenRes);
     }
 
     @Override

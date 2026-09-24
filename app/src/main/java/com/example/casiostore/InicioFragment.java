@@ -47,12 +47,12 @@ public class InicioFragment extends Fragment {
 
             // Si la base de datos está vacía, insertamos los productos iniciales automáticamente
             if (listaCompleta == null || listaCompleta.isEmpty()) {
-                db.productoDao().insertarProducto(new ProductoEntity("Piano Casio AP-550BK", "piano digital casio 88 teclas...", 2000.0, "ap_550bk", "Teclados"));
-                db.productoDao().insertarProducto(new ProductoEntity("Piano Casio AP-300BK", "piano digital casio 88 teclas...", 2330.0, "ap_300bk", "Teclados"));
-                db.productoDao().insertarProducto(new ProductoEntity("Piano Casio AP-750BK", "piano digital casio 88 teclas...", 2330.0, "ap_750", "Teclados"));
-                db.productoDao().insertarProducto(new ProductoEntity("Reloj Casio A-168WA", "reloj digital casio clásico...", 1234.0, "a168", "Relojes"));
-                db.productoDao().insertarProducto(new ProductoEntity("Reloj Casio MTP-1302D", "reloj análogo elegante...", 1234.0, "mtp_1302d", "Relojes"));
-                db.productoDao().insertarProducto(new ProductoEntity("Reloj Casio MTP-1314D", "reloj análogo con fechador...", 900.0, "mtp_1314d", "Relojes"));
+                db.productoDao().insertar(new ProductoEntity("Piano Casio AP-550BK", 2000.0, "piano digital casio 88 teclas...", R.drawable.ap_550bk, "Teclados", 1));
+                db.productoDao().insertar(new ProductoEntity("Piano Casio AP-300BK", 2330.0, "piano digital casio 88 teclas...", R.drawable.ap_300bk, "Teclados", 1));
+                db.productoDao().insertar(new ProductoEntity("Piano Casio AP-750BK", 2330.0, "piano digital casio 88 teclas...", R.drawable.ap_750, "Teclados", 1));
+                db.productoDao().insertar(new ProductoEntity("Reloj Casio A-168WA", 1234.0, "reloj digital casio clásico...", R.drawable.a168, "Relojes", 1));
+                db.productoDao().insertar(new ProductoEntity("Reloj Casio MTP-1302D", 1234.0, "reloj análogo elegante...", R.drawable.mtp_1302d, "Relojes", 1));
+                db.productoDao().insertar(new ProductoEntity("Reloj Casio MTP-1314D", 900.0, "reloj análogo con fechador...", R.drawable.mtp_1314d, "Relojes", 1));
 
                 // Volvemos a consultar para obtener la lista completa ya con los datos insertados
                 listaCompleta = db.productoDao().obtenerTodos();
@@ -80,7 +80,7 @@ public class InicioFragment extends Fragment {
         if (btnRelojes != null) {
             btnRelojes.setOnClickListener(v -> {
                 Intent intent = new Intent(getActivity(), PantallaRelojes.class);
-                intent.putExtra("CATEGORIA", "Relojes");
+                intent.putExtra("CATEGORIA", "RELOJES");
                 startActivity(intent);
             });
         }
@@ -89,7 +89,7 @@ public class InicioFragment extends Fragment {
         if (btnCalculadoras != null) {
             btnCalculadoras.setOnClickListener(v -> {
                 Intent intent = new Intent(getActivity(), PantallaRelojes.class);
-                intent.putExtra("CATEGORIA", "Calculadoras");
+                intent.putExtra("CATEGORIA", "CALCULADORAS");
                 startActivity(intent);
             });
         }
@@ -98,7 +98,7 @@ public class InicioFragment extends Fragment {
         if (btnTeclados != null) {
             btnTeclados.setOnClickListener(v -> {
                 Intent intent = new Intent(getActivity(), PantallaRelojes.class);
-                intent.putExtra("CATEGORIA", "Teclados");
+                intent.putExtra("CATEGORIA", "TECLADOS");
                 startActivity(intent);
             });
         }

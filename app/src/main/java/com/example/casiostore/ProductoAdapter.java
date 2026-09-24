@@ -44,15 +44,8 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         holder.txtDescripcion.setText(producto.descripcion);
         holder.txtPrecio.setText(producto.precio + " BS");
 
-        // Cargar imagen dinámicamente desde drawable usando el texto guardado en la BD
-        int imageId = holder.itemView.getContext().getResources().getIdentifier(
-                producto.imagenRes,
-                "drawable",
-                holder.itemView.getContext().getPackageName()
-        );
-        if (imageId != 0) {
-            holder.imgProducto.setImageResource(imageId);
-        }
+        // Cargar imagen directamente usando el entero del recurso (R.drawable.xxx)
+        holder.imgProducto.setImageResource(producto.imagenRes);
 
         // 4. Configurar el evento de clic en toda la tarjeta del producto
         holder.itemView.setOnClickListener(v -> {
