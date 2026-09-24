@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:weightSum="5">
+
+    <!-- Columna 1: Imagen -->
+    <ImageView
+        android:id="@+id/imgItemCarrito"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/a168" />
+
+    <!-- Columna 2: Nombre del producto -->
+    <TextView
+        android:id="@+id/txtNombreItemCarrito"
+        android:layout_width="0dp"
+        android:layout_weight="1.2"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <!-- Columna 3: Precio Unitario -->
+    <TextView
+        android:id="@+id/txtPrecioItemCarrito"
+        android:layout_width="0dp"
+        android:layout_weight="0.9"
+        android:layout_height="wrap_content"
+        android:text="Bs. 0"
+        android:textSize="13sp"
+        android:gravity="center" />
+
+    <!-- Columna 4: Cantidad -->
+    <TextView
+        android:id="@+id/txtCantidadItemCarrito"
+        android:layout_width="0dp"
+        android:layout_weight="0.8"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <!-- Columna 5: Subtotal -->
+    <TextView
+        android:id="@+id/txtSubtotalItemCarrito"
+        android:layout_width="0dp"
+        android:layout_weight="1.1"
+        android:layout_height="wrap_content"
+        android:text="Bs. 0"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:gravity="end" />
+
+</LinearLayout>

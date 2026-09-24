@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/negro"
+    tools:context=".PantallaRelojes">
+
+
+    <View
+        android:id="@+id/vista"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/fondo_curvo"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <!-- Contenedor superior para la flecha y los títulos dinámicos -->
+    <LinearLayout
+        android:id="@+id/layoutBarraSuperior"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Botón o icono de retroceso -->
+        <ImageView
+            android:id="@+id/btnAtras"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:contentDescription="Volver"
+            app:tint="@color/blanco" />
+
+        <!-- Título principal -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Casio Store"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/blanco"
+            android:layout_marginStart="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" | "
+            android:textSize="22sp"
+            android:textColor="@color/blanco"
+            android:layout_marginStart="8dp"/>
+
+        <!-- Título dinámico de la sección (RELOJES, CALCULADORAS, etc.) -->
+        <TextView
+            android:id="@+id/textoDos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RELOJES"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/blanco"
+            android:layout_marginStart="36dp"/>
+    </LinearLayout>
+
+
+    <!-- RecyclerView para mostrar los productos filtrados -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerProductosPantalla"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/vista"
+        app:layout_constraintBottom_toTopOf="@id/layaoutUno"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--barra de navegacion inferior-->
+    <LinearLayout
+        android:id="@+id/layaoutUno"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/blanco"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!--apartado para los botones 3 layouts para los botones de inicio, carrito, usuario-->
+        <LinearLayout
+            android:id="@+id/botonInicio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imagenUno"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/home"
+                />
+            <TextView
+                android:id="@+id/Inicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inicio"
+                android:textStyle="bold"
+                android:textColor="@color/negro"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/botonCarrito"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imagenDOs"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/carrito"
+                />
+            <TextView
+                android:id="@+id/Carrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carrito"
+                android:textStyle="bold"
+                android:textColor="@color/negro"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/botonUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imagenTres"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/usuario"
+                />
+            <TextView
+                android:id="@+id/Usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:textStyle="bold"
+                android:textColor="@color/negro"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
