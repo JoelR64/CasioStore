@@ -1,5 +1,7 @@
 package com.example.casiostore;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -15,10 +17,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.Executors;
+
 public class PagoTarjetaFragment extends Fragment {
 
     private EditText etNumeroTarjeta, etExpiracion, etCvv;
     private Button btnTerminarPago;
+    private String correoUsuarioActual;
 
     public PagoTarjetaFragment() {
         // Constructor público requerido
@@ -38,6 +47,13 @@ public class PagoTarjetaFragment extends Fragment {
         etExpiracion = view.findViewById(R.id.etExpiracion);
         etCvv = view.findViewById(R.id.etCvv);
         btnTerminarPago = view.findViewById(R.id.btnTerminarPago);
+
+        // Obtener el correo del usuario logueado actualmente (desde SharedPreferences)
+        SharedPreferences prefs = requireActivity().getSharedPreferences("SesionUsuario", Context.MODE_PRIVATE);
+        correoUsuarioActual = prefs.getString("correo_usuario", "");
+
+        // Cargar los datos de tarjeta si ya los guardó antes
+        cargarTarjetaGuardada();
 
         // Formateador automático para la fecha MM/AA
         etExpiracion.addTextChangedListener(new TextWatcher() {
@@ -75,6 +91,25 @@ public class PagoTarjetaFragment extends Fragment {
         btnTerminarPago.setOnClickListener(v -> procesarPagoTarjeta());
     }
 
+    private void cargarTarjetaGuardada() {
+        if (TextUtils.isEmpty(correoUsuarioActual)) return;
+
+        Executors.newSingleThreadExecutor().execute(() -> {
+            CasioDatabase db = CasioDatabase.getDatabase(getContext());
+            UsuarioEntity usuario = db.usuarioDao().obtenerUsuarioPorCorreo(correoUsuarioActual);
+
+            if (usuario != null && usuario.numeroTarjeta != null && !usuario.numeroTarjeta.isEmpty()) {
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(() -> {
+                        etNumeroTarjeta.setText(usuario.numeroTarjeta);
+                        etExpiracion.setText(usuario.expiracionTarjeta);
+                        etCvv.setText(usuario.cvvTarjeta);
+                    });
+                }
+            }
+        });
+    }
+
     private void procesarPagoTarjeta() {
         String numTarjeta = etNumeroTarjeta.getText().toString().trim();
         String expiracion = etExpiracion.getText().toString().trim();
@@ -104,9 +139,52 @@ public class PagoTarjetaFragment extends Fragment {
 
         Toast.makeText(getContext(), "¡Pago realizado con éxito!", Toast.LENGTH_SHORT).show();
 
-        // Navegar a DetalleCompraFragment sin borrar aún el carrito de la BD
-        getParentFragmentManager().beginTransaction()
-                .replace(R.id.contenedorprincipal, new DetalleCompraFragment())
-                .commit();
+        // Creamos copias finales para usarlas dentro del hilo de ejecución (lambda)
+        final String tarjetaFinal = numTarjeta;
+        final String expiracionFinal = expiracion;
+        final String cvvFinal = cvv;
+
+        Executors.newSingleThreadExecutor().execute(() -> {
+            CasioDatabase db = CasioDatabase.getDatabase(getContext());
+
+            // 1. Guardar o actualizar la tarjeta del usuario para que no tenga que volver a escribirla
+            if (!TextUtils.isEmpty(correoUsuarioActual)) {
+                UsuarioEntity usuario = db.usuarioDao().obtenerUsuarioPorCorreo(correoUsuarioActual);
+                if (usuario != null) {
+                    usuario.numeroTarjeta = tarjetaFinal;
+                    usuario.expiracionTarjeta = expiracionFinal;
+                    usuario.cvvTarjeta = cvvFinal;
+                    db.usuarioDao().actualizar(usuario);
+                }
+            }
+
+            // 2. Procesar la compra normal (Historial, Tabla Temporal y Vaciar Carrito)
+            List<CarritoEntity> listaCarrito = db.carritoDao().obtenerCarrito();
+
+            if (listaCarrito != null && !listaCarrito.isEmpty()) {
+                String fechaActual = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+
+                db.ultimaCompraDao().vaciarUltimaCompra();
+
+                for (CarritoEntity item : listaCarrito) {
+                    double totalItem = item.precio * item.cantidad;
+                    db.historialDao().insertarCompra(new HistorialEntity(item.nombre, totalItem, fechaActual));
+
+                    db.ultimaCompraDao().insertar(new UltimaCompraEntity(
+                            item.nombre, item.precio, item.cantidad, item.imagenRes, item.descripcion
+                    ));
+                }
+            }
+
+            db.carritoDao().vaciarCarrito();
+
+            if (getActivity() != null) {
+                getActivity().runOnUiThread(() -> {
+                    getParentFragmentManager().beginTransaction()
+                            .replace(R.id.contenedorprincipal, new DetalleCompraFragment())
+                            .commit();
+                });
+            }
+        });
     }
 }

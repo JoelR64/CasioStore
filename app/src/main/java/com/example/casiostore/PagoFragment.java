@@ -18,7 +18,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.Executors;
 
 public class PagoFragment extends Fragment {
@@ -37,14 +40,39 @@ public class PagoFragment extends Fragment {
                     String qrContenido = result.getContents();
                     Toast.makeText(getContext(), "Pago exitoso por QR: " + qrContenido, Toast.LENGTH_LONG).show();
 
-                    // Vaciar carrito tras pago completado con QR
+                    // Guardar en el historial y en la tabla temporal, luego vaciar carrito tras pago con QR
                     Executors.newSingleThreadExecutor().execute(() -> {
                         CasioDatabase db = CasioDatabase.getDatabase(getContext());
+                        List<CarritoEntity> listaCarrito = db.carritoDao().obtenerCarrito();
+
+                        if (listaCarrito != null && !listaCarrito.isEmpty()) {
+                            String fechaActual = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+
+                            // 1. Limpiamos la tabla temporal anterior
+                            db.ultimaCompraDao().vaciarUltimaCompra();
+
+                            for (CarritoEntity item : listaCarrito) {
+                                double totalItem = item.precio * item.cantidad;
+
+                                // Guardar en el historial general (perfil)
+                                db.historialDao().insertarCompra(new HistorialEntity(item.nombre, totalItem, fechaActual));
+
+                                // 2. Guardar en la tabla temporal (recibo de detalle)
+                                db.ultimaCompraDao().insertar(new UltimaCompraEntity(
+                                        item.nombre, item.precio, item.cantidad, item.imagenRes, item.descripcion
+                                ));
+                            }
+                        }
+
+                        // Vaciar carrito
                         db.carritoDao().vaciarCarrito();
 
                         if (getActivity() != null) {
                             getActivity().runOnUiThread(() -> {
-                                getParentFragmentManager().popBackStack();
+                                // Navegar al detalle de compra igual que con tarjeta
+                                getParentFragmentManager().beginTransaction()
+                                        .replace(R.id.contenedorprincipal, new DetalleCompraFragment())
+                                        .commit();
                             });
                         }
                     });
@@ -98,12 +126,11 @@ public class PagoFragment extends Fragment {
     private void abrirCamaraEscaner() {
         ScanOptions options = new ScanOptions();
         options.setPrompt("Escanea el código QR de pago");
-        options.setCameraId(0); // Cámara trasera por defecto
-        options.setBeepEnabled(true); // Sonido al detectar el QR
+        options.setCameraId(0);
+        options.setBeepEnabled(true);
         options.setBarcodeImageEnabled(true);
         options.setOrientationLocked(false);
 
-        // Iniciar la cámara
         barcodeLauncher.launch(options);
     }
 

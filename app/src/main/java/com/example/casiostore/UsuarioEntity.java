@@ -17,6 +17,11 @@ public class UsuarioEntity {
     public UsuarioEntity() {
     }
 
+    // Nuevos campos para la tarjeta del usuario
+    public String numeroTarjeta;
+    public String expiracionTarjeta;
+    public String cvvTarjeta;
+
     // Constructor con parámetros para facilitar el registro/inserción
     public UsuarioEntity(String email, String password, String nombre) {
         this.email = email;

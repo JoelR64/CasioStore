@@ -3,8 +3,8 @@ package com.example.casiostore;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "carrito")
-public class CarritoEntity {
+@Entity(tableName = "ultima_compra")
+public class UltimaCompraEntity {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
@@ -14,11 +14,11 @@ public class CarritoEntity {
     public int imagenRes;
     public String descripcion;
 
-    // --- CONSTRUCTOR VACÍO NECESARIO ---
-    public CarritoEntity() {
+    // Constructor vacío requerido por Room
+    public UltimaCompraEntity() {
     }
 
-    public CarritoEntity(String nombre, double precio, int cantidad, int imagenRes, String descripcion) {
+    public UltimaCompraEntity(String nombre, double precio, int cantidad, int imagenRes, String descripcion) {
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
