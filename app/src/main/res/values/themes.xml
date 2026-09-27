@@ -1,9 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.CasioStore" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <!-- Tema principal de la app -->
+    <style name="Theme.CasioStore" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Colores primarios globales -->
+        <item name="colorPrimary">@color/azul_casio</item>
+        <item name="colorSecondary">@color/rojo_boton</item>
 
-    <style name="Theme.CasioStore" parent="Base.Theme.CasioStore" />
+        <!-- Color de fondo por defecto para las ventanas -->
+        <item name="android:windowBackground">@color/negro_fondo</item>
+    </style>
 </resources>

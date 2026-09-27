@@ -8,8 +8,6 @@
     android:background="@color/negro"
     tools:context=".MainActivity">
 
-    <!-- Contenedor donde aparecerá el fragmento de login al presionar el botón -->
-
     <ImageView
         android:id="@+id/LogoInicio"
         android:layout_width="142dp"
@@ -19,7 +17,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher_foreground" />
+        app:srcCompat="@mipmap/ic_launcher_foreground"
+        android:contentDescription="@string/app_name" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/contenedorLogin"
@@ -27,40 +26,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/LogoInicio"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Botón 1: Iniciar Sesión (Muestra el fragmento) -->
     <Button
         android:id="@+id/btnIrLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
-        android:textColor="@color/blanco"
-        android:textSize="15dp"
-        android:backgroundTint="#d50000"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        style="@style/BotonPrincipal"
+        android:text="@string/btn_iniciar_sesion"
         android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@id/contenedorLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Botón 2: Continuar como invitado (Va directo a PANTALLA2) -->
     <Button
         android:id="@+id/btnInvitado"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/blanco"
-        android:text="Continuar como invitado"
-        android:textStyle="bold"
-        android:textSize="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        style="@style/BotonSecundario"
+        android:text="@string/btn_continuar_invitado"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/negro"
         app:layout_constraintTop_toBottomOf="@id/btnIrLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

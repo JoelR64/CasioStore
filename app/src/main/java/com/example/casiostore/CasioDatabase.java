@@ -14,8 +14,9 @@ import java.util.concurrent.Executors;
         CarritoEntity.class,
         UsuarioEntity.class,
         HistorialEntity.class,
-        UltimaCompraEntity.class // <-- 1. Añadido aquí
-}, version = 3, exportSchema = false) // <-- 2. Cambiado de version = 2 a version = 3
+        UltimaCompraEntity.class,
+        NotificacionEntity.class // <-- 1. Añadida la entidad de notificaciones
+}, version = 4, exportSchema = false) // <-- 2. Versión actualizada a 4
 public abstract class CasioDatabase extends RoomDatabase {
 
     public abstract ProductoDao productoDao();
@@ -23,6 +24,7 @@ public abstract class CasioDatabase extends RoomDatabase {
     public abstract UsuarioDao usuarioDao();
     public abstract HistorialDao historialDao();
     public abstract UltimaCompraDao ultimaCompraDao();
+    public abstract NotificacionDao notificacionDao(); // <-- 3. Declarado el DAO de notificaciones
 
     private static volatile CasioDatabase INSTANCE;
 
@@ -32,7 +34,7 @@ public abstract class CasioDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     CasioDatabase.class, "casio_store_db")
-                            .fallbackToDestructiveMigration()
+                            .fallbackToDestructiveMigration() // Borra y recrea la BD automáticamente al cambiar de versión
                             .addCallback(sRoomDatabaseCallback)
                             .build();
                 }

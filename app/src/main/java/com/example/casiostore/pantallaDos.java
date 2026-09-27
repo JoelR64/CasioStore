@@ -30,6 +30,7 @@ public class pantallaDos extends AppCompatActivity {
         // Referencias a los elementos de la barra superior
         TextView textoUno = findViewById(R.id.textoUno);
         ImageView btnAtrasGeneral = findViewById(R.id.btnAtrasGeneral);
+        ImageView btnCampanaNotificaciones = findViewById(R.id.btnCampanaNotificaciones);
 
         // Referencias a los botones del menú inferior
         LinearLayout btnInicio = findViewById(R.id.botonInicio);
@@ -47,7 +48,7 @@ public class pantallaDos extends AppCompatActivity {
         btnInicio.setOnClickListener(v -> {
             cargarFragmento(new InicioFragment());
             textoUno.setText("Casio Store |");
-            btnAtrasGeneral.setVisibility(View.GONE); // Se oculta en Inicio
+            btnAtrasGeneral.setVisibility(View.GONE); // Oculto en Inicio (Línea corregida)
         });
 
         // 3. Programar el clic para el botón Carrito
@@ -64,7 +65,16 @@ public class pantallaDos extends AppCompatActivity {
             btnAtrasGeneral.setVisibility(View.VISIBLE); // Aparece en Usuario
         });
 
-        // 5. Programar la acción del botón de retroceso general
+        // 5. Programar el clic para el botón de la campana de notificaciones
+        if (btnCampanaNotificaciones != null) {
+            btnCampanaNotificaciones.setOnClickListener(v -> {
+                cargarFragmento(new NotificacionesFragment());
+                textoUno.setText("NOTIFICACIONES");
+                btnAtrasGeneral.setVisibility(View.VISIBLE); // Muestra la flecha para volver
+            });
+        }
+
+        // 6. Programar la acción del botón de retroceso general
         btnAtrasGeneral.setOnClickListener(v -> {
             // Al presionarlo, regresa a la pantalla de Inicio
             cargarFragmento(new InicioFragment());

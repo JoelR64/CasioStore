@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Estilo global para cualquier título principal -->
+    <style name="TextoTituloGlobal">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item> <!-- Si tu inge pide cambiar a light, solo cambias "bold" por "normal" aquí -->
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <!-- Estilo global para textos normales / descripciones -->
+    <style name="TextoCuerpoGlobal">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo base común para los botones de la app -->
+    <style name="BotonGeneralEstilo">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <!-- Botón principal (Rojo) -->
+    <style name="BotonPrincipal" parent="BotonGeneralEstilo">
+        <item name="android:textSize">15sp</item>
+        <item name="android:backgroundTint">@color/rojo_principal</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- Botón secundario (Negro/Invitado) -->
+    <style name="BotonSecundario" parent="BotonGeneralEstilo">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:backgroundTint">@color/negro</item>
+    </style>
+
+    <!-- Estilo para el título grande de la barra superior -->
+    <style name="EstiloTextoHeader">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <!-- Estilo para los textos del menú de navegación inferior -->
+    <style name="EstiloTextoMenuInferior">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo para el título de la barra superior -->
+    <style name="EstiloTituloDetalle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo para el nombre principal del producto -->
+    <style name="EstiloNombreProducto">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo para el precio -->
+    <style name="EstiloPrecioProducto">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/rojo_precio</item>
+    </style>
+
+    <!-- Estilo para subtítulos (ej. "Descripción") -->
+    <style name="EstiloSubtituloSeccion">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/gris_etiqueta</item>
+    </style>
+
+    <!-- Estilo para el texto de la descripción -->
+    <style name="EstiloCuerpoTexto">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/gris_texto</item>
+    </style>
+
+    <!-- Estilo para el botón de Agregar al Carrito -->
+    <style name="EstiloBotonCarrito">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:backgroundTint">@color/rojo_precio</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <!-- Estilo para títulos secundarios de la barra superior (ej. CALCULADORAS) -->
+    <style name="EstiloSubtituloHeader">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+</resources>
