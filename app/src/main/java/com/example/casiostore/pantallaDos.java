@@ -72,18 +72,20 @@ public class pantallaDos extends AppCompatActivity {
             if (currentTime - lastClickTime < 800) {
                 userClickCount++;
             } else {
-                userClickCount = 1; // Se reinicia si pasa mucho tiempo entre toque y toque
+                userClickCount = 1; // Se reinicia si pasa mucho tiempo
             }
             lastClickTime = currentTime;
 
             // Si llega a los 5 toques rápidos, activa la pantalla ghost
             if (userClickCount >= 5) {
-                userClickCount = 0; // Reseteamos
+                userClickCount = 0; // Reseteamos el contador
                 cargarFragmento(new GhostFragment());
                 textoUno.setText("PANTALLA FANTASMA");
                 btnAtrasGeneral.setVisibility(View.VISIBLE);
             } else {
                 // Comportamiento normal: abre el perfil de usuario habitual
+                // NOTA: Si aquí te manda al login, asegúrate de que UsuarioFragment
+                // evalúe si hay sesión activa antes de redirigir.
                 cargarFragmento(new UsuarioFragment());
                 textoUno.setText("MI PERFIL");
                 btnAtrasGeneral.setVisibility(View.VISIBLE);

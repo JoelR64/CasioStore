@@ -4,19 +4,15 @@
 
     <ImageView
         style="@style/EstiloAvatarGhost"
-        android:src="@drawable/usuario"
+        android:src="@drawable/oip"
         android:contentDescription="@string/desc_avatar_usuario" />
-
-    <TextView
-        style="@style/EstiloTituloGhost"
-        android:text="@string/titulo_pantalla_ghost" />
-
-    <TextView
-        style="@style/EstiloAutoresGhost"
-        android:text="@string/desarrolladores_ghost" />
 
     <TextView
         style="@style/EstiloInstitucionGhost"
         android:text="@string/institucion_ghost" />
+
+    <TextView
+        style="@style/EstiloAutoresGhost"
+        android:text="@string/desarrolladores_ghost" />
 
 </LinearLayout>

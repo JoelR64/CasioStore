@@ -116,8 +116,7 @@
     <string name="descripcion_corta_placeholder">Descripción corta...</string>
     <string name="precio_placeholder">0000 BS</string>
 
-    <!-- Textos para la Pantalla Ghost / Créditos -->
-    <string name="titulo_pantalla_ghost">PANTALLA GHOST / CRÉDITOS</string>
-    <string name="desarrolladores_ghost">Desarrollado por:\nVerusca Lorena Orellana Rodas \nJoel Roque Antinapa</string>
-    <string name="institucion_ghost">Universidad Privada Domingo Savio\nIngeniería de Sistemas\n\nAplicaciones moviles I</string>
+    <!-- Textos actualizados para la Pantalla Ghost / Créditos -->
+    <string name="institucion_ghost">Universidad Privada Domingo Savio\nIngenieria de sistemas\n\nAplicaciones moviles I</string>
+    <string name="desarrolladores_ghost">Desarrollado por:\nVerusca Lorena Orellana Rodas \nJoel Roque Antinapa\n\nOctavo semestre\n\n2026</string>
 </resources>
