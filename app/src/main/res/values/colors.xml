@@ -23,4 +23,6 @@
     <color name="gris_fecha_historial">#AAAAAA</color>
     <color name="azul_flecha_notificacion">#003366</color>
     <color name="gris_descripcion_producto">#444444</color>
+    <!-- Color gris secundario para subtítulos institucionales -->
+    <color name="gris_subtitulo_ghost">#888888</color>
 </resources>

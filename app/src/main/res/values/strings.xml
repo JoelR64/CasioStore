@@ -115,4 +115,9 @@
     <string name="nombre_producto_grid_placeholder">Nombre del producto</string>
     <string name="descripcion_corta_placeholder">Descripción corta...</string>
     <string name="precio_placeholder">0000 BS</string>
+
+    <!-- Textos para la Pantalla Ghost / Créditos -->
+    <string name="titulo_pantalla_ghost">PANTALLA GHOST / CRÉDITOS</string>
+    <string name="desarrolladores_ghost">Desarrollado por:\nVerusca Lorena Orellana Rodas \nJoel Roque Antinapa</string>
+    <string name="institucion_ghost">Universidad Privada Domingo Savio\nIngeniería de Sistemas\n\nAplicaciones moviles I</string>
 </resources>

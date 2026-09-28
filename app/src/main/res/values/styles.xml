@@ -490,4 +490,48 @@
         <item name="android:textColor">@color/rojo_principal</item>
         <item name="android:layout_marginTop">4dp</item>
     </style>
+
+    <!-- Contenedor principal de la Pantalla Ghost -->
+    <style name="EstiloContenedorGhost">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/negro</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">24dp</item>
+    </style>
+
+    <!-- Avatar de usuario en Ghost -->
+    <style name="EstiloAvatarGhost">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">90dp</item>
+    </style>
+
+    <!-- Título de la Pantalla Ghost -->
+    <style name="EstiloTituloGhost" parent="EstiloTextoHeader">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Texto de los autores -->
+    <style name="EstiloAutoresGhost">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Texto institucional (Universidad/Materia) -->
+    <style name="EstiloInstitucionGhost">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textColor">@color/gris_subtitulo_ghost</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>
