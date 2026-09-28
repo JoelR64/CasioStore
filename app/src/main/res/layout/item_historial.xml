@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="12dp"
-    android:background="#1E1E1E"
-    android:layout_marginBottom="8dp">
+    style="@style/EstiloFilaHistorial">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -15,30 +10,18 @@
 
         <TextView
             android:id="@+id/txtNombreHistorial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre del producto"
-            android:textColor="@color/blanco"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            style="@style/EstiloNombreHistorial"
+            android:text="@string/nombre_producto_placeholder" />
 
         <TextView
             android:id="@+id/txtFechaHistorial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="24/09/2026"
-            android:textColor="#AAAAAA"
-            android:textSize="12sp"
-            android:layout_marginTop="4dp"/>
+            style="@style/EstiloFechaHistorial"
+            android:text="@string/fecha_placeholder" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/txtMontoHistorial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bs. 0.0"
-        android:textColor="#00E676"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_vertical"/>
+        style="@style/EstiloMontoHistorial"
+        android:text="@string/monto_placeholder" />
+
 </LinearLayout>

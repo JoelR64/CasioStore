@@ -3,7 +3,7 @@
     <!-- Estilo global para cualquier título principal -->
     <style name="TextoTituloGlobal">
         <item name="android:textSize">18sp</item>
-        <item name="android:textStyle">bold</item> <!-- Si tu inge pide cambiar a light, solo cambias "bold" por "normal" aquí -->
+        <item name="android:textStyle">italic</item> <!-- Si tu inge pide cambiar a light, solo cambias "bold" por "normal" aquí -->
         <item name="android:textColor">@color/blanco</item>
     </style>
 
@@ -98,9 +98,396 @@
     </style>
 
     <!-- Estilo para títulos secundarios de la barra superior (ej. CALCULADORAS) -->
-    <style name="EstiloSubtituloHeader">
+    <style name="EstiloSubtituloHeader" parent="TextoTituloGlobal">
         <item name="android:textSize">24sp</item>
+        <!-- Heredará automáticamente el italic de TextoTituloGlobal -->
+    </style>
+
+    <!-- Estilo para títulos medianos de la barra superior (ej. Relojes) -->
+    <style name="EstiloTituloMedianoHeader">
+        <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <!-- Estilo para el aviso de carrito vacío -->
+    <style name="EstiloTextoCarritoVacio">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <!-- Estilo para los encabezados de la tabla del carrito -->
+    <style name="EstiloEncabezadoTabla">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo para el subtotal general -->
+    <style name="EstiloSubtotalGeneral">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo para el botón Pagar -->
+    <style name="EstiloBotonPagar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:backgroundTint">@color/verde_pago</item>
+    </style>
+
+    <!-- Estilo para los textos del subtotal en el detalle de compra -->
+    <style name="EstiloSubtotalDetalle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo para el botón de hacer otra compra -->
+    <style name="EstiloBotonOtraCompra">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:backgroundTint">@color/rojo_principal</item>
+        <item name="android:paddingHorizontal">20dp</item>
+    </style>
+
+    <!-- Estilo para títulos de sección (ej. Historial de Compras) -->
+    <style name="EstiloTituloSeccion">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <!-- Estilo para la barra de búsqueda -->
+    <style name="EstiloSearchBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">42dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:background">@drawable/fondo_search</item>
+        <item name="android:hint">@string/hint_buscar_producto</item>
+        <item name="android:textColorHint">@color/blanco</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:drawableStart">@drawable/baseline_search_24</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:drawableTint">@color/blanco</item>
+    </style>
+
+    <!-- Estilo base para los botones de categoría -->
+    <style name="EstiloBotonFiltro">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:backgroundTint">@color/blanco</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="cornerRadius">18dp</item>
+    </style>
+
+    <!-- Botón filtro Relojes -->
+    <style name="EstiloBotonRelojes" parent="EstiloBotonFiltro">
+        <item name="android:textSize">10sp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+    <!-- Botón filtro Calculadoras -->
+    <style name="EstiloBotonCalculadoras" parent="EstiloBotonFiltro">
+        <item name="android:textSize">8sp</item>
+        <item name="android:layout_marginStart">2dp</item>
+        <item name="android:layout_marginEnd">2dp</item>
+    </style>
+
+    <!-- Botón filtro Teclados -->
+    <style name="EstiloBotonTeclados" parent="EstiloBotonFiltro">
+        <item name="android:textSize">10sp</item>
+        <item name="android:layout_marginStart">4dp</item>
+    </style>
+
+    <!-- Estilo global para los inputs de texto (Correo y Contraseña) -->
+    <style name="EstiloInputGlobal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textColorHint">@color/blanco</item>
+    </style>
+
+    <!-- Estilo para el campo de correo -->
+    <style name="EstiloInputCorreo" parent="EstiloInputGlobal">
+        <item name="android:hint">@string/hint_correo</item>
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <!-- Estilo para el campo de contraseña -->
+    <style name="EstiloInputPassword" parent="EstiloInputGlobal">
+        <item name="android:hint">@string/hint_password</item>
+        <item name="android:inputType">textPassword</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <!-- Estilo para el botón de confirmar login -->
+    <style name="EstiloBotonConfirmarLogin">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/btn_ingresar</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:backgroundTint">@color/rojo_principal</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Estilo para el título de facturación -->
+    <style name="EstiloTituloFacturacion">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo para las etiquetas de los campos (NIT/CI, Razón Social, Teléfono) -->
+    <style name="EstiloLabelFacturacion">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo para los campos de texto editables de facturación -->
+    <style name="EstiloInputFacturacion">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Estilo para los botones principales de pago (QR y Tarjeta) -->
+    <style name="EstiloBotonPago">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:backgroundTint">@color/verde_pago</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">27dp</item>
+    </style>
+
+    <!-- Estilo para las etiquetas (Títulos de los campos de tarjeta) -->
+    <style name="EstiloLabelTarjeta">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <!-- Estilo base para los inputs de la tarjeta -->
+    <style name="EstiloInputTarjeta">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:background">@color/gris_input_tarjeta</item>
+        <item name="android:paddingHorizontal">12dp</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:textColorHint">@color/gris_hint_tarjeta</item>
+    </style>
+
+    <!-- Estilo para el botón Terminar Pago -->
+    <style name="EstiloBotonTerminarPago">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_marginTop">120dp</item>
+        <item name="android:backgroundTint">@color/verde_pago</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Estilo para el nombre principal en la tarjeta de perfil -->
+    <style name="EstiloNombrePerfil">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <!-- Estilo para el correo secundario en la tarjeta de perfil -->
+    <style name="EstiloCorreoPerfil">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/gris_correo_perfil</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+
+    <!-- Estilo para subtítulos de sección (ej. "Datos personales") -->
+    <style name="EstiloSubtituloPerfil">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <!-- Estilo para los ítems de texto dentro de datos personales -->
+    <style name="EstiloItemDatoPersonal">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!-- Estilo para las líneas divisorias de los datos -->
+    <style name="EstiloLineaDivisoria">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/gris_linea_separadora</item>
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+
+    <!-- Estilo base para los botones de acción del perfil -->
+    <style name="EstiloBotonAccionPerfil">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Botón Historial y Cerrar Sesión (Azul) -->
+    <style name="EstiloBotonAzulPerfil" parent="EstiloBotonAccionPerfil">
+        <item name="android:backgroundTint">@color/azul_perfil</item>
+    </style>
+
+    <!-- Botón Eliminar Cuenta (Azul muy oscuro) -->
+    <style name="EstiloBotonEliminarPerfil" parent="EstiloBotonAccionPerfil">
+        <item name="android:backgroundTint">@color/azul_oscuro_eliminar</item>
+    </style>
+
+    <!-- Estilo base para los textos de la fila del carrito -->
+    <style name="EstiloTextoFilaCarrito">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Estilo para el nombre del producto en la fila -->
+    <style name="EstiloNombreFilaCarrito" parent="EstiloTextoFilaCarrito">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1.2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Estilo para el precio unitario -->
+    <style name="EstiloPrecioFilaCarrito" parent="EstiloTextoFilaCarrito">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.9</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Estilo para la cantidad -->
+    <style name="EstiloCantidadFilaCarrito" parent="EstiloTextoFilaCarrito">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.8</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Estilo para el subtotal por ítem -->
+    <style name="EstiloSubtotalFilaCarrito" parent="EstiloTextoFilaCarrito">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1.1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <!-- Estilo para el contenedor de la fila del historial -->
+    <style name="EstiloFilaHistorial">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@color/gris_fondo_item_historial</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <!-- Estilo para el nombre del producto en el historial -->
+    <style name="EstiloNombreHistorial">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Estilo para la fecha de la compra -->
+    <style name="EstiloFechaHistorial">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gris_fecha_historial</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+
+    <!-- Estilo para el monto total del historial -->
+    <style name="EstiloMontoHistorial">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/verde_pago</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <!-- Estilo para la fecha de la notificación -->
+    <style name="EstiloFechaNotificacion">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Estilo para el mensaje de la notificación -->
+    <style name="EstiloMensajeNotificacion">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Estilo para el nombre del producto en la grilla -->
+    <style name="EstiloNombreProductoGrid">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- Estilo para la descripción corta del producto -->
+    <style name="EstiloDescripcionProductoGrid">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">6sp</item>
+        <item name="android:textColor">@color/gris_descripcion_producto</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Estilo para el precio del producto en la grilla -->
+    <style name="EstiloPrecioProductoGrid">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/rojo_principal</item>
+        <item name="android:layout_marginTop">4dp</item>
     </style>
 </resources>

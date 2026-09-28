@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212">
+    android:background="@color/negro_fondo">
 
     <!-- Formulario de datos de tarjeta -->
     <LinearLayout
@@ -13,26 +13,18 @@
 
         <!-- Número de Tarjeta -->
         <TextView
+            style="@style/EstiloLabelTarjeta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Numero de tarjeta"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="@string/label_numero_tarjeta" />
 
         <EditText
             android:id="@+id/etNumeroTarjeta"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="6dp"
-            android:background="#D9D9D9"
-            android:hint="4500 0000 0000 0000"
+            style="@style/EstiloInputTarjeta"
+            android:hint="@string/hint_numero_tarjeta"
             android:inputType="number"
-            android:maxLength="19"
-            android:paddingHorizontal="12dp"
-            android:textColor="#000000"
-            android:textColorHint="#757575" />
+            android:maxLength="19" />
 
         <!-- Fila para Fecha MM/AA y Código de Seguridad -->
         <LinearLayout
@@ -51,25 +43,17 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/EstiloLabelTarjeta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="MM/AA"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:text="@string/label_expiracion" />
 
                 <EditText
                     android:id="@+id/etExpiracion"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#D9D9D9"
-                    android:hint="MM/AA"
+                    style="@style/EstiloInputTarjeta"
+                    android:hint="@string/hint_expiracion"
                     android:inputType="datetime"
-                    android:maxLength="5"
-                    android:paddingHorizontal="12dp"
-                    android:textColor="#000000"
-                    android:textColorHint="#757575" />
+                    android:maxLength="5" />
             </LinearLayout>
 
             <!-- Codigo de seguridad -->
@@ -81,25 +65,17 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/EstiloLabelTarjeta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Codigo de seguridad"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:text="@string/label_cvv" />
 
                 <EditText
                     android:id="@+id/etCvv"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#D9D9D9"
-                    android:hint="CVV"
+                    style="@style/EstiloInputTarjeta"
+                    android:hint="@string/hint_cvv"
                     android:inputType="numberPassword"
-                    android:maxLength="4"
-                    android:paddingHorizontal="12dp"
-                    android:textColor="#000000"
-                    android:textColorHint="#757575" />
+                    android:maxLength="4" />
             </LinearLayout>
 
         </LinearLayout>
@@ -107,14 +83,8 @@
         <!-- Botón Terminar Pago -->
         <Button
             android:id="@+id/btnTerminarPago"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="120dp"
-            android:backgroundTint="#00E676"
-            android:text="TERMINAR PAGO"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            style="@style/EstiloBotonTerminarPago"
+            android:text="@string/btn_terminar_pago" />
 
     </LinearLayout>
 

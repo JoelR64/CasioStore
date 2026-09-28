@@ -24,4 +24,95 @@
 
     <!-- Textos de Pantalla Calculadoras -->
     <string name="titulo_calculadoras">CALCULADORAS</string>
+
+    <!-- Textos de Pantalla Relojes -->
+    <string name="titulo_relojes">RELOJES</string>
+
+    <!-- Textos del Carrito -->
+    <string name="carrito_vacio">NO TIENES ITEMS EN TU CARRITO</string>
+    <string name="desc_agregar_item">Agregar</string>
+    <string name="tabla_producto">Producto</string>
+    <string name="tabla_precio">Precio</string>
+    <string name="tabla_cantidad">Cantidad</string>
+    <string name="tabla_total">Total</string>
+    <string name="subtotal_inicial">Subtotal: Bs. 0.0</string>
+    <string name="btn_pagar">PAGAR</string>
+
+    <!-- Textos de Detalle de Compra / Historial -->
+    <string name="tabla_item">Item</string>
+    <string name="subtotal_ejemplo">SUBTOTAL  Bs. 11,050</string>
+
+    <!-- Textos de Historial de Compras -->
+    <string name="titulo_historial_compras">Historial de Compras</string>
+
+    <!-- Textos de Inicio / Home -->
+    <string name="desc_banner_carousel">Banner del producto</string>
+    <string name="hint_buscar_producto">buscar producto</string>
+    <string name="btn_filtro_relojes">RELOJES</string>
+    <string name="btn_filtro_calculadoras">CALCULADORAS</string>
+    <string name="btn_filtro_teclados">TECLADOS</string>
+
+    <!-- Textos de Login -->
+    <string name="hint_correo">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_ingresar">Ingresar</string>
+
+    <!-- Textos de Pago y Facturación -->
+    <string name="titulo_datos_facturacion">DATOS DE FACTURACION</string>
+    <string name="label_nit_ci">NIT/CI: </string>
+    <string name="label_razon_social">RAZON SOCIAL: </string>
+    <string name="label_telefono">TELEFONO: </string>
+    <string name="tabla_subtotal">Subtotal</string>
+    <string name="btn_pago_qr">QR</string>
+    <string name="btn_pago_tarjeta">TARJETA</string>
+
+    <!-- Textos de Pago con Tarjeta -->
+    <string name="label_numero_tarjeta">Numero de tarjeta</string>
+    <string name="hint_numero_tarjeta">4500 0000 0000 0000</string>
+    <string name="label_expiracion">MM/AA</string>
+    <string name="hint_expiracion">MM/AA</string>
+    <string name="label_cvv">Codigo de seguridad</string>
+    <string name="hint_cvv">CVV</string>
+    <string name="btn_terminar_pago">TERMINAR PAGO</string>
+
+    <!-- Textos de Perfil de Usuario -->
+    <string name="desc_avatar_usuario">Foto de perfil</string>
+    <string name="nombre_usuario_default">Usuario</string>
+    <string name="correo_usuario_default">correo@casiostore.com</string>
+    <string name="titulo_datos_personales">Datos personales</string>
+
+    <!-- Datos personales quemados de ejemplo -->
+    <string name="perfil_nombre">Joel Roque</string>
+    <string name="perfil_apellido">Antinapa</string>
+    <string name="perfil_nacimiento">13/02/2000</string>
+    <string name="perfil_correo">joel@casiostore.com</string>
+    <string name="perfil_telefono">+591 65854512</string>
+
+    <!-- Botones de la sección de perfil -->
+    <string name="btn_historial_compras">HISTORIAL DE COMPRAS</string>
+    <string name="btn_cerrar_sesion">CERRAR SESIÓN</string>
+    <string name="btn_eliminar_cuenta">ELIMINAR CUENTA</string>
+    <string name="mensaje_no_sesion">No has iniciado sesión</string>
+
+    <!-- Textos por defecto para los ítems del carrito -->
+    <string name="desc_imagen_item_carrito">Imagen del producto en carrito</string>
+    <string name="texto_nombre_placeholder">Nombre</string>
+    <string name="texto_precio_placeholder">Bs. 0</string>
+    <string name="texto_cantidad_placeholder">1</string>
+
+    <!-- Textos por defecto para los ítems del historial -->
+    <string name="nombre_producto_placeholder">Nombre del producto</string>
+    <string name="fecha_placeholder">24/09/2026</string>
+    <string name="monto_placeholder">Bs. 0.0</string>
+
+    <!-- Textos por defecto para los ítems de notificación -->
+    <string name="fecha_notificacion_placeholder">16/09/2026</string>
+    <string name="mensaje_notificacion_placeholder">Tienes una notificación pendiente</string>
+    <string name="desc_flecha_notificacion">Ver detalle de notificación</string>
+
+    <!-- Textos por defecto para los ítems de la grilla de productos -->
+    <string name="desc_imagen_producto_grid">Imagen del producto</string>
+    <string name="nombre_producto_grid_placeholder">Nombre del producto</string>
+    <string name="descripcion_corta_placeholder">Descripción corta...</string>
+    <string name="precio_placeholder">0000 BS</string>
 </resources>

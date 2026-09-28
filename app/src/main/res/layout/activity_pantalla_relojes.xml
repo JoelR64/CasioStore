@@ -8,14 +8,13 @@
     android:background="@color/negro"
     tools:context=".PantallaRelojes">
 
-
     <View
         android:id="@+id/vista"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/fondo_curvo"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Contenedor superior para la flecha y los títulos dinámicos -->
     <LinearLayout
         android:id="@+id/layoutBarraSuperior"
@@ -35,39 +34,33 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:src="@drawable/baseline_arrow_back_ios_24"
-            android:contentDescription="Volver"
+            android:contentDescription="@string/desc_volver"
             app:tint="@color/blanco" />
 
         <!-- Título principal -->
         <TextView
+            style="@style/EstiloTituloMedianoHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Casio Store"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/blanco"
-            android:layout_marginStart="16dp"/>
+            android:text="@string/app_name"
+            android:layout_marginStart="16dp" />
 
         <TextView
+            style="@style/EstiloTituloMedianoHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" | "
-            android:textSize="22sp"
-            android:textColor="@color/blanco"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp" />
 
-        <!-- Título dinámico de la sección (RELOJES, CALCULADORAS, etc.) -->
+        <!-- Título dinámico de la sección -->
         <TextView
             android:id="@+id/textoDos"
+            style="@style/EstiloTituloMedianoHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RELOJES"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/blanco"
-            android:layout_marginStart="36dp"/>
+            android:text="@string/titulo_relojes"
+            android:layout_marginStart="36dp" />
     </LinearLayout>
-
 
     <!-- RecyclerView para mostrar los productos filtrados -->
     <androidx.recyclerview.widget.RecyclerView
@@ -79,7 +72,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!--barra de navegacion inferior-->
+    <!-- Barra de navegación inferior -->
     <LinearLayout
         android:id="@+id/layaoutUno"
         android:layout_width="match_parent"
@@ -89,7 +82,6 @@
         android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!--apartado para los botones 3 layouts para los botones de inicio, carrito, usuario-->
         <LinearLayout
             android:id="@+id/botonInicio"
             android:layout_width="0dp"
@@ -102,15 +94,15 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/home"
-                />
+                android:contentDescription="@string/menu_inicio" />
             <TextView
                 android:id="@+id/Inicio"
+                style="@style/EstiloTextoMenuInferior"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Inicio"
-                android:textStyle="bold"
-                android:textColor="@color/negro"/>
+                android:text="@string/menu_inicio" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/botonCarrito"
             android:layout_width="0dp"
@@ -123,15 +115,15 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/carrito"
-                />
+                android:contentDescription="@string/menu_carrito" />
             <TextView
                 android:id="@+id/Carrito"
+                style="@style/EstiloTextoMenuInferior"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Carrito"
-                android:textStyle="bold"
-                android:textColor="@color/negro"/>
+                android:text="@string/menu_carrito" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/botonUsuario"
             android:layout_width="0dp"
@@ -144,14 +136,13 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/usuario"
-                />
+                android:contentDescription="@string/menu_usuario" />
             <TextView
                 android:id="@+id/Usuario"
+                style="@style/EstiloTextoMenuInferior"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Usuario"
-                android:textStyle="bold"
-                android:textColor="@color/negro"/>
+                android:text="@string/menu_usuario" />
         </LinearLayout>
 
     </LinearLayout>

@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/negro_fondo"
     android:fillViewport="true"
     android:scrollbars="vertical">
 
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#D9D9D9"
+            android:background="@color/gris_tarjeta_detalle"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -29,47 +29,39 @@
                 android:paddingBottom="8dp">
 
                 <TextView
+                    style="@style/EstiloEncabezadoTabla"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Item"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:text="@string/tabla_item" />
 
                 <TextView
+                    style="@style/EstiloEncabezadoTabla"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.2"
                     android:gravity="center"
-                    android:text="Producto"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:text="@string/tabla_producto" />
 
                 <TextView
+                    style="@style/EstiloEncabezadoTabla"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.8"
                     android:gravity="center"
-                    android:text="Cantidad"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:text="@string/tabla_cantidad" />
 
                 <TextView
+                    style="@style/EstiloEncabezadoTabla"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:gravity="end"
-                    android:text="Total"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:text="@string/tabla_total" />
             </LinearLayout>
 
-            <!-- Lista de productos con limite de altura si es muy larga y barra de scroll -->
+            <!-- Lista de productos con límite de altura y barra de scroll -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvDetalleProductos"
                 android:layout_width="match_parent"
@@ -80,31 +72,23 @@
             <!-- Subtotal General -->
             <TextView
                 android:id="@+id/tvSubtotalDetalle"
+                style="@style/EstiloSubtotalDetalle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="end"
-                android:text="SUBTOTAL  Bs. 11,050"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="@string/subtotal_ejemplo" />
         </LinearLayout>
 
-        <!-- Botón HACER OTRA COMPRA (Siempre visible al bajar) -->
+        <!-- Botón HACER OTRA COMPRA -->
         <Button
             android:id="@+id/btnHacerOtraCompra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/EstiloBotonOtraCompra"
             android:layout_below="@id/cardDetalle"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
-            android:backgroundTint="#FF0000"
-            android:paddingHorizontal="20dp"
-            android:text="HACER OTRA COMPRA"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:text="@string/btn_hacer_otra_compra" />
 
     </RelativeLayout>
 </ScrollView>

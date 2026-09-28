@@ -23,27 +23,15 @@
             android:layout_marginTop="16dp"
             android:scaleType="centerCrop"
             android:src="@drawable/carrusel"
+            android:contentDescription="@string/desc_banner_carousel"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Barra de búsqueda -->
         <EditText
-            android:id="@+id/searchBar"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/fondo_search"
-            android:hint="buscar producto"
-            android:textColorHint="@color/blanco"
-            android:textColor="@color/blanco"
-            android:textSize="14sp"
-            android:paddingStart="16dp"
-            android:drawableStart="@drawable/baseline_search_24"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/blanco"
+            android:id="@+id/inputBuscar"
+            style="@style/EstiloSearchBar"
             app:layout_constraintTop_toBottomOf="@id/bannerCarousel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -58,49 +46,24 @@
             android:layout_marginTop="14dp"
             android:orientation="horizontal"
             android:weightSum="3"
-            app:layout_constraintTop_toBottomOf="@id/searchBar"
+            app:layout_constraintTop_toBottomOf="@id/inputBuscar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <Button
                 android:id="@+id/btnRelojes"
-                android:layout_width="0dp"
-                android:layout_height="36dp"
-                android:layout_weight="1"
-                android:text="RELOJES"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                android:backgroundTint="@color/blanco"
-                android:textColor="@color/negro"
-                android:layout_marginEnd="4dp"
-                app:cornerRadius="18dp"/>
+                style="@style/EstiloBotonRelojes"
+                android:text="@string/btn_filtro_relojes" />
 
             <Button
                 android:id="@+id/btnCalculadoras"
-                android:layout_width="0dp"
-                android:layout_height="36dp"
-                android:layout_weight="1"
-                android:text="CALCULADORAS"
-                android:textSize="8sp"
-                android:textStyle="bold"
-                android:backgroundTint="@color/blanco"
-                android:textColor="@color/negro"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="2dp"
-                app:cornerRadius="18dp"/>
+                style="@style/EstiloBotonCalculadoras"
+                android:text="@string/btn_filtro_calculadoras" />
 
             <Button
                 android:id="@+id/btnTeclados"
-                android:layout_width="0dp"
-                android:layout_height="36dp"
-                android:layout_weight="1"
-                android:text="TECLADOS"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                android:backgroundTint="@color/blanco"
-                android:textColor="@color/negro"
-                android:layout_marginStart="4dp"
-                app:cornerRadius="18dp"/>
+                style="@style/EstiloBotonTeclados"
+                android:text="@string/btn_filtro_teclados" />
         </LinearLayout>
 
         <!-- ================= RECYCLERVIEW DINÁMICO ================= -->

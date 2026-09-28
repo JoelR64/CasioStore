@@ -19,12 +19,10 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
+            style="@style/EstiloTextoCarritoVacio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NO TIENES ITEMS EN TU CARRITO"
-            android:textColor="@color/blanco"
-            android:textStyle="bold"
-            android:textSize="16sp"
+            android:text="@string/carrito_vacio"
             android:layout_marginBottom="24dp" />
 
         <!-- Botón circular "+" para ir al inicio -->
@@ -35,7 +33,7 @@
             android:background="@drawable/fondo_curvo"
             android:src="@drawable/mas"
             android:padding="12dp"
-            android:contentDescription="Agregar"
+            android:contentDescription="@string/desc_agregar_item"
             app:tint="@color/blanco" />
     </LinearLayout>
 
@@ -72,38 +70,34 @@
                     android:paddingBottom="12dp">
 
                     <TextView
+                        style="@style/EstiloEncabezadoTabla"
                         android:layout_width="0dp"
                         android:layout_weight="1.2"
                         android:layout_height="wrap_content"
-                        android:text="Producto"
-                        android:textStyle="bold"
-                        android:textColor="@color/negro" />
+                        android:text="@string/tabla_producto" />
 
                     <TextView
+                        style="@style/EstiloEncabezadoTabla"
                         android:layout_width="0dp"
                         android:layout_weight="0.9"
                         android:layout_height="wrap_content"
-                        android:text="Precio"
-                        android:textStyle="bold"
-                        android:textColor="@color/negro"
+                        android:text="@string/tabla_precio"
                         android:gravity="center" />
 
                     <TextView
+                        style="@style/EstiloEncabezadoTabla"
                         android:layout_width="0dp"
                         android:layout_weight="0.9"
                         android:layout_height="wrap_content"
-                        android:text="Cantidad"
-                        android:textStyle="bold"
-                        android:textColor="@color/negro"
+                        android:text="@string/tabla_cantidad"
                         android:gravity="center" />
 
                     <TextView
+                        style="@style/EstiloEncabezadoTabla"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Total"
-                        android:textStyle="bold"
-                        android:textColor="@color/negro"
+                        android:text="@string/tabla_total"
                         android:gravity="end" />
                 </LinearLayout>
 
@@ -114,7 +108,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
 
-                <!-- NUEVO: Fila inferior con el Subtotal general y el botón Pagar -->
+                <!-- Fila inferior con el Subtotal general y el botón Pagar -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -124,23 +118,17 @@
 
                     <TextView
                         android:id="@+id/txtSubtotalGeneral"
+                        style="@style/EstiloSubtotalGeneral"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Subtotal: Bs. 0.0"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/negro" />
+                        android:text="@string/subtotal_inicial" />
 
                     <!-- Botón PAGAR -->
                     <Button
                         android:id="@+id/btnPagar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="PAGAR"
-                        android:textStyle="bold"
-                        android:textColor="@color/blanco"
-                        android:backgroundTint="@android:color/holo_green_dark" />
+                        style="@style/EstiloBotonPagar"
+                        android:text="@string/btn_pagar" />
 
                 </LinearLayout>
 

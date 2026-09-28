@@ -9,4 +9,18 @@
     <color name="gris_etiqueta">#666666</color>
     <color name="gris_texto">#333333</color>
     <color name="rojo_precio">#D32F2F</color>
+    <color name="verde_pagar">#388E3C</color> <!-- Color verde oscuro profesional para el botón Pagar -->
+    <color name="gris_tarjeta_detalle">#D9D9D9</color>
+    <color name="gris_facturacion">#DCDCDC</color>
+    <color name="gris_separador">#A0A0A0</color>
+    <color name="verde_pago">#00E676</color><color name="gris_input_tarjeta">#D9D9D9</color>
+    <color name="gris_hint_tarjeta">#757575</color>
+    <color name="gris_correo_perfil">#555555</color>
+    <color name="gris_linea_separadora">#888888</color>
+    <color name="azul_perfil">#1565C0</color>
+    <color name="azul_oscuro_eliminar">#0D0033</color>
+    <color name="gris_fondo_item_historial">#1E1E1E</color>
+    <color name="gris_fecha_historial">#AAAAAA</color>
+    <color name="azul_flecha_notificacion">#003366</color>
+    <color name="gris_descripcion_producto">#444444</color>
 </resources>

@@ -16,6 +16,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class pantallaDos extends AppCompatActivity {
 
+    // Variables para el contador del easter egg (pantalla ghost)
+    private int userClickCount = 0;
+    private long lastClickTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,28 +45,49 @@ public class pantallaDos extends AppCompatActivity {
         if (savedInstanceState == null) {
             cargarFragmento(new InicioFragment());
             textoUno.setText("Casio Store |");
-            btnAtrasGeneral.setVisibility(View.GONE); // Oculto en Inicio
+            btnAtrasGeneral.setVisibility(View.GONE);
         }
 
         // 2. Programar el clic para el botón Inicio
         btnInicio.setOnClickListener(v -> {
             cargarFragmento(new InicioFragment());
             textoUno.setText("Casio Store |");
-            btnAtrasGeneral.setVisibility(View.GONE); // Oculto en Inicio (Línea corregida)
+            btnAtrasGeneral.setVisibility(View.GONE);
+            userClickCount = 0; // Reiniciar contador si navega a otro lado
         });
 
         // 3. Programar el clic para el botón Carrito
         btnCarrito.setOnClickListener(v -> {
             cargarFragmento(new CarritoFragment());
             textoUno.setText("TU CARRITO");
-            btnAtrasGeneral.setVisibility(View.VISIBLE); // Aparece en Carrito
+            btnAtrasGeneral.setVisibility(View.VISIBLE);
+            userClickCount = 0; // Reiniciar contador
         });
 
-        // 4. Programar el clic para el botón Usuario
+        // 4. LÓGICA DE LA PANTALLA GHOST EN EL BOTÓN USUARIO (5 TOQUES RÁPIDOS)
         btnUsuario.setOnClickListener(v -> {
-            cargarFragmento(new UsuarioFragment());
-            textoUno.setText("MI PERFIL");
-            btnAtrasGeneral.setVisibility(View.VISIBLE); // Aparece en Usuario
+            long currentTime = System.currentTimeMillis();
+
+            // Si el tiempo entre toque y toque es menor a 800 milisegundos, cuenta como consecutivo
+            if (currentTime - lastClickTime < 800) {
+                userClickCount++;
+            } else {
+                userClickCount = 1; // Se reinicia si pasa mucho tiempo entre toque y toque
+            }
+            lastClickTime = currentTime;
+
+            // Si llega a los 5 toques rápidos, activa la pantalla ghost
+            if (userClickCount >= 5) {
+                userClickCount = 0; // Reseteamos
+                cargarFragmento(new GhostFragment());
+                textoUno.setText("PANTALLA FANTASMA");
+                btnAtrasGeneral.setVisibility(View.VISIBLE);
+            } else {
+                // Comportamiento normal: abre el perfil de usuario habitual
+                cargarFragmento(new UsuarioFragment());
+                textoUno.setText("MI PERFIL");
+                btnAtrasGeneral.setVisibility(View.VISIBLE);
+            }
         });
 
         // 5. Programar el clic para el botón de la campana de notificaciones
@@ -70,16 +95,17 @@ public class pantallaDos extends AppCompatActivity {
             btnCampanaNotificaciones.setOnClickListener(v -> {
                 cargarFragmento(new NotificacionesFragment());
                 textoUno.setText("NOTIFICACIONES");
-                btnAtrasGeneral.setVisibility(View.VISIBLE); // Muestra la flecha para volver
+                btnAtrasGeneral.setVisibility(View.VISIBLE);
+                userClickCount = 0;
             });
         }
 
         // 6. Programar la acción del botón de retroceso general
         btnAtrasGeneral.setOnClickListener(v -> {
-            // Al presionarlo, regresa a la pantalla de Inicio
             cargarFragmento(new InicioFragment());
             textoUno.setText("Casio Store |");
             btnAtrasGeneral.setVisibility(View.GONE);
+            userClickCount = 0;
         });
     }
 

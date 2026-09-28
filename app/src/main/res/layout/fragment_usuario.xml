@@ -13,7 +13,7 @@
         android:padding="20dp"
         android:gravity="center_horizontal">
 
-        <!-- VISTA PARA USUARIO LOGUEADO (Contenedor general con ID) -->
+        <!-- VISTA PARA USUARIO LOGUEADO -->
         <LinearLayout
             android:id="@+id/layoutUsuarioLogueado"
             android:layout_width="match_parent"
@@ -41,6 +41,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:src="@drawable/usuario"
+                        android:contentDescription="@string/desc_avatar_usuario"
                         app:tint="@color/negro" />
 
                     <LinearLayout
@@ -51,39 +52,33 @@
 
                         <TextView
                             android:id="@+id/txtNombrePerfil"
+                            style="@style/EstiloNombrePerfil"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Usuario"
-                            android:textColor="@color/negro"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:text="@string/nombre_usuario_default" />
 
                         <TextView
                             android:id="@+id/txtCorreoPerfil"
+                            style="@style/EstiloCorreoPerfil"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="correo@casiostore.com"
-                            android:textColor="#555555"
-                            android:textSize="13sp" />
+                            android:text="@string/correo_usuario_default" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
+                style="@style/EstiloSubtituloPerfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Datos personales"
-                android:textColor="@color/blanco"
-                android:textSize="14sp" />
+                android:text="@string/titulo_datos_personales" />
 
             <!-- Tarjeta de Datos Personales -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="28dp"
-                app:cardBackgroundColor="#D9D9D9"
+                app:cardBackgroundColor="@color/gris_facturacion"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp">
 
@@ -94,85 +89,63 @@
                     android:padding="18dp">
 
                     <TextView
+                        style="@style/EstiloItemDatoPersonal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:text="Joel Roque"
-                        android:textColor="@color/negro"
-                        android:textSize="14sp" />
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#888888" android:layout_marginBottom="12dp"/>
+                        android:text="@string/perfil_nombre" />
+                    <View style="@style/EstiloLineaDivisoria" />
 
                     <TextView
+                        style="@style/EstiloItemDatoPersonal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:text="Antinapa"
-                        android:textColor="@color/negro"
-                        android:textSize="14sp" />
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#888888" android:layout_marginBottom="12dp"/>
+                        android:text="@string/perfil_apellido" />
+                    <View style="@style/EstiloLineaDivisoria" />
 
                     <TextView
+                        style="@style/EstiloItemDatoPersonal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:text="13/02/2000"
-                        android:textColor="@color/negro"
-                        android:textSize="14sp" />
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#888888" android:layout_marginBottom="12dp"/>
+                        android:text="@string/perfil_nacimiento" />
+                    <View style="@style/EstiloLineaDivisoria" />
 
                     <TextView
                         android:id="@+id/txtEmailDetalle"
+                        style="@style/EstiloItemDatoPersonal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:text="joel@casiostore.com"
-                        android:textColor="@color/negro"
-                        android:textSize="14sp" />
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#888888" android:layout_marginBottom="12dp"/>
+                        android:text="@string/perfil_correo" />
+                    <View style="@style/EstiloLineaDivisoria" />
 
                     <TextView
+                        style="@style/EstiloItemDatoPersonal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="+591 65854512"
-                        android:textColor="@color/negro"
-                        android:textSize="14sp" />
+                        android:text="@string/perfil_telefono"
+                        android:paddingBottom="0dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <!-- Botón Historial de Compras -->
             <Button
                 android:id="@+id/btnIrHistorial"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginBottom="12dp"
-                android:backgroundTint="#1565C0"
-                android:text="HISTORIAL DE COMPRAS"
-                android:textColor="@color/blanco"
-                android:textStyle="bold" />
+                style="@style/EstiloBotonAzulPerfil"
+                android:text="@string/btn_historial_compras" />
 
             <!-- Botón Cerrar Sesión -->
             <Button
                 android:id="@+id/btnCerrarSesion"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginBottom="12dp"
-                android:backgroundTint="#1565C0"
-                android:text="CERRAR SESIÓN"
-                android:textColor="@color/blanco"
-                android:textStyle="bold" />
+                style="@style/EstiloBotonAzulPerfil"
+                android:text="@string/btn_cerrar_sesion" />
 
             <!-- Botón Eliminar Cuenta -->
             <Button
                 android:id="@+id/btnEliminarCuenta"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:backgroundTint="#0D0033"
-                android:text="ELIMINAR CUENTA"
-                android:textColor="@color/blanco"
-                android:textStyle="bold" />
+                style="@style/EstiloBotonEliminarPerfil"
+                android:text="@string/btn_eliminar_cuenta" />
         </LinearLayout>
 
-        <!-- VISTA PARA INVITADO (Oculta por defecto, se muestra solo si es invitado) -->
+        <!-- VISTA PARA INVITADO -->
         <LinearLayout
             android:id="@+id/layoutInvitado"
             android:layout_width="match_parent"
@@ -183,23 +156,18 @@
             android:padding="32dp">
 
             <TextView
+                style="@style/EstiloTextoCarritoVacio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                android:text="No has iniciado sesión"
-                android:textColor="@color/blanco"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="@string/mensaje_no_sesion"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btnLoginDesdePerfil"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:backgroundTint="#d50000"
-                android:text="INICIAR SESIÓN"
-                android:textColor="@color/blanco"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/EstiloBotonAccionPerfil"
+                android:backgroundTint="@color/rojo_principal"
+                android:text="@string/btn_iniciar_sesion" />
         </LinearLayout>
 
     </LinearLayout>

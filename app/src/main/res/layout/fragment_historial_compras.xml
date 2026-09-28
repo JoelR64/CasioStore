@@ -7,13 +7,11 @@
     android:padding="16dp">
 
     <TextView
+        style="@style/EstiloTituloSeccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Historial de Compras"
-        android:textColor="@color/blanco"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:text="@string/titulo_historial_compras" />
 
     <!-- RecyclerView con scroll para mostrar las compras -->
     <androidx.recyclerview.widget.RecyclerView

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
     app:cardCornerRadius="12dp"
-    app:cardBackgroundColor="#D9D9D9">
+    app:cardBackgroundColor="@color/gris_facturacion">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,37 +19,22 @@
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/ap_550bk" />
+            android:src="@drawable/ap_550bk"
+            android:contentDescription="@string/desc_imagen_producto_grid" />
 
         <TextView
             android:id="@+id/txtNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre del producto"
-            android:textSize="8sp"
-            android:textStyle="bold"
-            android:textColor="@color/negro"
-            android:layout_marginTop="4dp"
-            android:maxLines="1"/>
+            style="@style/EstiloNombreProductoGrid"
+            android:text="@string/nombre_producto_grid_placeholder" />
 
         <TextView
             android:id="@+id/txtDescripcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descripción corta..."
-            android:textSize="6sp"
-            android:textColor="#444444"
-            android:maxLines="2"
-            android:gravity="center"/>
+            style="@style/EstiloDescripcionProductoGrid"
+            android:text="@string/descripcion_corta_placeholder" />
 
         <TextView
             android:id="@+id/txtPrecio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0000 BS"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            android:textColor="#FF0000"
-            android:layout_marginTop="4dp"/>
+            style="@style/EstiloPrecioProductoGrid"
+            android:text="@string/precio_placeholder" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
