@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
         HistorialEntity.class,
         UltimaCompraEntity.class,
         NotificacionEntity.class // <-- 1. Añadida la entidad de notificaciones
-}, version = 4, exportSchema = false) // <-- 2. Versión actualizada a 4
+}, version = 5, exportSchema = false) // <-- 2. Versión actualizada a 4
 public abstract class CasioDatabase extends RoomDatabase {
 
     public abstract ProductoDao productoDao();
@@ -65,6 +65,28 @@ public abstract class CasioDatabase extends RoomDatabase {
                     pDao.insertar(new ProductoEntity("Piano Casio AP-550BK", 2000.0, "Piano digital Privia con acción de martillo y sonido acústico real.", R.drawable.ap_550bk, "TECLADOS", 1));
                     pDao.insertar(new ProductoEntity("Teclado Casio CT-S200", 1100.0, "Teclado portátil de 61 teclas con modo de música de baile.", R.drawable.ct_200bk, "TECLADOS", 1));
                     pDao.insertar(new ProductoEntity("Piano Casio AP-300BK", 2330.0, "Sonido estéreo dinámico y diseño compacto moderno de lujo.", R.drawable.ap_300bk, "TECLADOS", 1));
+
+                    // --- NUEVOS PRODUCTOS ADICIONALES ---
+// Relojes
+                    pDao.insertar(new ProductoEntity("Reloj Casio G-Shock Mudmaster GWG-B1000-3AJF", 4200.0, "Resistencia extrema al barro, polvo y vibraciones con brújula y termómetro.", R.drawable.gwg_b1000, "RELOJES", 1));
+                    pDao.insertar(new ProductoEntity("Reloj Casio Pro Trek PRG-600", 3800.0, "Reloj solar para exteriores con altímetro, barómetro y sensor triple.", R.drawable.prg_600, "RELOJES", 1));
+                    pDao.insertar(new ProductoEntity("Reloj Casio Vintage A-700WM", 850.0, "Diseño ultra delgado de estilo retro vintage con malla milanesa.", R.drawable.a_700wm, "RELOJES", 1));
+                    pDao.insertar(new ProductoEntity("Reloj Casio Edifice Chronograph EFR-574D", 4900.0, "Edición especial de alto rendimiento con conectividad Bluetooth.", R.drawable.efr_574d, "RELOJES", 1));
+                    pDao.insertar(new ProductoEntity("Reloj Casio Baby-G BA-110", 2100.0, "Diseño deportivo y femenino con alta resistencia a impactos.", R.drawable.ba_110, "RELOJES", 1));
+
+// Calculadoras
+                    pDao.insertar(new ProductoEntity("Calculadora Científica FX-570ES Plus", 290.0, "Calculadora científica no programable con 417 funciones avanzadas.", R.drawable.fx_570esplus, "CALCULADORAS", 1));
+                    pDao.insertar(new ProductoEntity("Calculadora Científica ClassWiz FX-991LAX", 450.0, "Pantalla de alta resolución con hoja de cálculo y visualización en código QR.", R.drawable.fx_991lax, "CALCULADORAS", 1));
+                    pDao.insertar(new ProductoEntity("Calculadora de Escritorio JW-200TW", 140.0, "Diseño elegante con cuerpo metálico y funciones de cálculo fiscal y de impuestos.", R.drawable.jw_200tw, "CALCULADORAS", 1));
+                    pDao.insertar(new ProductoEntity("Calculadora de Impuestos y Costos DH-12", 180.0, "Calculadora de 12 dígitos con teclas grandes y conversiones de moneda.", R.drawable.dh_12, "CALCULADORAS", 1));
+                    pDao.insertar(new ProductoEntity("Calculadora de Impuestos JS-40B", 220.0, "Calculadora de sobremesa profesional con funciones de control de tiempo.", R.drawable.js_40b, "CALCULADORAS", 1));
+
+// Teclados y Pianos Digitales
+                    pDao.insertar(new ProductoEntity("Teclado Casio CT-X700", 1850.0, "Teclado portátil de 61 teclas con fuente de sonidos AiX y ritmos avanzados.", R.drawable.ct_x700, "TECLADOS", 1));
+                    pDao.insertar(new ProductoEntity("Teclado Casio SA-81", 650.0, "Mini teclado de 44 teclas ideal para niños y principiantes con gran variedad de tonos.", R.drawable.sa_81, "TECLADOS", 1));
+                    pDao.insertar(new ProductoEntity("Piano Casio Privia PX-S1100", 3800.0, "Piano digital delgado de 88 teclas contrapesadas con Bluetooth MIDI.", R.drawable.px_s1100, "TECLADOS", 1));
+                    pDao.insertar(new ProductoEntity("Piano Casio CDP-S110", 2500.0, "Piano digital compacto con acción de martillo escalado y sonido estéreo.", R.drawable.cdp_s110, "TECLADOS", 1));
+                    pDao.insertar(new ProductoEntity("Teclado Casio CT-S400", 1450.0, "Teclado portátil inteligente con 600 tonos integrados y rueda de pitch bend.", R.drawable.ct_s400, "TECLADOS", 1));
 
                     // --- 2. POBLAR USUARIOS ---
                     uDao.insertar(new UsuarioEntity("admin@casiostore.com", "123456", "Administrador Principal"));

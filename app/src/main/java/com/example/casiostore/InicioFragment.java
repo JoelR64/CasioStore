@@ -2,6 +2,8 @@ package com.example.casiostore;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +29,17 @@ public class InicioFragment extends Fragment {
     private ProductoAdapter adapter;
     private RecyclerView recyclerView;
 
+    // Variables para el Carrusel Dinámico
+    private ImageView bannerCarousel;
+    private int[] imagenesBanner = {
+            R.drawable.carrusel, // Imagen principal actual
+            R.drawable.carrusel_2, // Puedes cambiar estas por tus banners diseñados
+            R.drawable.carrusel_3     // Tercera imagen del carrusel
+    };
+    private int indiceBanner = 0;
+    private final Handler handlerBanner = new Handler(Looper.getMainLooper());
+    private Runnable runnableBanner;
+
     public InicioFragment() {
         // Required empty public constructor
     }
@@ -40,14 +54,18 @@ public class InicioFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // 1. Encontramos los botones, RecyclerView y el Buscador por su ID
+        // 1. Encontramos los componentes por su ID
         Button btnRelojes = view.findViewById(R.id.btnRelojes);
         Button btnCalculadoras = view.findViewById(R.id.btnCalculadoras);
         Button btnTeclados = view.findViewById(R.id.btnTeclados);
-        EditText inputBuscar = view.findViewById(R.id.inputBuscar); // <--- Tu barra de búsqueda
+        EditText inputBuscar = view.findViewById(R.id.inputBuscar);
+        bannerCarousel = view.findViewById(R.id.bannerCarousel); // <--- Referencia al Banner
 
         recyclerView = view.findViewById(R.id.recyclerProductos);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
+
+        // Iniciar el Carrusel Automático (Cambia de imagen cada 3.5 segundos)
+        iniciarCarrusel();
 
         // Cargar productos en segundo plano
         Executors.newSingleThreadExecutor().execute(() -> {
@@ -118,6 +136,34 @@ public class InicioFragment extends Fragment {
         }
     }
 
+    // --- MÉTODO PARA INICIAR EL CARRUSEL AUTOMÁTICO ---
+    private void iniciarCarrusel() {
+        runnableBanner = new Runnable() {
+            @Override
+            public void run() {
+                if (bannerCarousel != null) {
+                    // Cambia la imagen del banner usando el índice actual
+                    bannerCarousel.setImageResource(imagenesBanner[indiceBanner]);
+
+                    // Avanza al siguiente índice de forma circular
+                    indiceBanner = (indiceBanner + 1) % imagenesBanner.length;
+                }
+                // Repite la ejecución cada 3500 milisegundos (3.5 segundos)
+                handlerBanner.postDelayed(this, 3500);
+            }
+        };
+        handlerBanner.postDelayed(runnableBanner, 3500);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Detenemos el carrusel cuando se destruye la vista para evitar consumo de memoria
+        if (handlerBanner != null && runnableBanner != null) {
+            handlerBanner.removeCallbacks(runnableBanner);
+        }
+    }
+
     // Método para inicializar el adaptador del RecyclerView
     private void configurarAdapter(List<ProductoEntity> lista) {
         adapter = new ProductoAdapter(lista, productoSeleccionado -> {
@@ -137,14 +183,12 @@ public class InicioFragment extends Fragment {
         String textoFiltro = textoBusqueda.toLowerCase().trim();
 
         for (ProductoEntity producto : listaCompletaProductos) {
-            // Filtra si coincide con el nombre o la descripción del producto
             if (producto.nombre.toLowerCase().contains(textoFiltro) ||
                     producto.descripcion.toLowerCase().contains(textoFiltro)) {
                 listaFiltrada.add(producto);
             }
         }
 
-        // Si el adapter ya está inicializado, actualizamos su contenido al instante
         if (adapter != null) {
             adapter.actualizarLista(listaFiltrada);
         }
